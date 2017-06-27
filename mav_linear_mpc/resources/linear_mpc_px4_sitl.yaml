@@ -11,9 +11,9 @@
 #==================================================================================================================
 
 ## Controller Parameters:
-mass: 1.52
+mass: 1.5
 roll_time_constant: 0.25
-pitch_time_constant: 0.255
+pitch_time_constant: 0.25
 roll_gain: 0.9
 pitch_gain: 0.9
 drag_coefficients: [ 0.010000 , 0.010000, 0.0000]
@@ -53,5 +53,5 @@ antiwindup_ball: 0.4
 enable_offset_free : true
 enable_integrator : true
 
-sampling_time: 0.01    #IMPORTANT: set this equal to the rate of odometry msg
+sampling_time: 0.0333    #IMPORTANT: set this equal to the rate of odometry msg
 prediction_sampling_time: 0.1

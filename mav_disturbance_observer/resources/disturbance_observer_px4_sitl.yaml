@@ -34,8 +34,8 @@ KF_observer:
   roll_damping : 0.72
   roll_gain : 0.8
   pitch_omega : 7.07
-  pitch_damping : 0.76
-  pitch_gain : 0.84
+  pitch_damping : 0.72
+  pitch_gain : 0.8
   yaw_omega : 5.000000
   yaw_damping : 0.950000
   yaw_gain : 1.000000
