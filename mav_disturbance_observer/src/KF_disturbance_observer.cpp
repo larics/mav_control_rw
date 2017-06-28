@@ -385,12 +385,15 @@ bool KFDisturbanceObserver::updateEstimator()
   }
 
   //check that dt is not so different from 0.01
-  if (dt > 0.015) {
-    dt = 0.015;
+  // bug 0.01 is too small for px4 should be minimu 0.02
+  if (dt > 0.035) {
+    dt = 0.035;
+    ROS_INFO("Kf observer - maximum dt time.");
   }
 
   if (dt < 0.005) {
     dt = 0.005;
+    ROS_INFO("Kf observer - minimum dt time.");
   }
 
   state_covariance_ = F_ * state_covariance_ * F_.transpose();
