@@ -47,7 +47,7 @@ void RcInterfaceAci::rcCallback(const sensor_msgs::JoyConstPtr& msg)
     if (msg->axes[4] <= -0.5)
       last_data_.control_mode = RcData::ControlMode::MANUAL;
     else if (msg->axes[4] > -0.5 && msg->axes[4] < 0.5)
-      last_data_.control_mode = RcData::ControlMode::ALTITUDE_CONTROL;
+      last_data_.control_mode = RcData::ControlMode::POSITION_CONTROL;
     else
       last_data_.control_mode = RcData::ControlMode::POSITION_CONTROL;
 
