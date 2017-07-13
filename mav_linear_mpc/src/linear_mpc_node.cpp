@@ -80,6 +80,7 @@ void LinearModelPredictiveControllerNode::DynConfigCallback(mav_linear_mpc::Line
   linear_mpc_.setCommandPenality(r_command);
   linear_mpc_.setDeltaCommandPenality(r_delta_command);
   linear_mpc_.setYawGain(config.K_yaw);
+  linear_mpc_.setYawIntegratorGain(config.Ki_yaw);
   linear_mpc_.setControlLimits(control_limits);
 
   linear_mpc_.setAltitudeIntratorGain(config.Ki_altitude);

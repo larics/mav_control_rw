@@ -84,6 +84,11 @@ class LinearModelPredictiveController
     K_yaw_ = K_yaw;
   }
 
+  void setYawIntegratorGain(double Ki_yaw)
+  {
+    Ki_yaw_ = Ki_yaw;
+  }
+
   void setAltitudeIntratorGain(double Ki_altitude)
   {
     Ki_altitude_ = Ki_altitude;
@@ -187,6 +192,8 @@ class LinearModelPredictiveController
 
   // yaw P gain
   double K_yaw_;
+  // yaw I gain
+  double Ki_yaw_;
 
   // backup LQR
   Eigen::MatrixXd LQR_K_;
@@ -198,6 +205,9 @@ class LinearModelPredictiveController
   double antiwindup_ball_;
   Eigen::Vector3d position_error_integration_;
   double position_error_integration_limit_;
+
+  double yaw_error_integration_;
+  double yaw_error_integration_limit_;
 
   // control input limits
   double roll_limit_;

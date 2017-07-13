@@ -54,7 +54,9 @@ LinearModelPredictiveController::LinearModelPredictiveController(const ros::Node
       verbose_(false),
       solve_time_average_(0),
       steady_state_calculation_(nh, private_nh),
-      received_first_odometry_(false)
+      received_first_odometry_(false),
+      yaw_error_integration_(0.0),
+      yaw_error_integration_limit_(1.0)
 {
   reset_integrator_service_server_ = nh_.advertiseService(
         "reset_integrator", &LinearModelPredictiveController::resetIntegratorServiceCallback, this);
@@ -133,6 +135,12 @@ void LinearModelPredictiveController::initializeParameters()
 
   if (!private_nh_.getParam("prediction_sampling_time", prediction_sampling_time_)) {
     ROS_ERROR("prediction_sampling_time in MPC is not loaded from ros parameter server");
+    abort();
+  }
+
+   if (!private_nh_.getParam("yaw_error_integration_limit",
+                            yaw_error_integration_limit_)) {
+    ROS_ERROR("yaw_error_integration_limit in MPC is not loaded from ros parameter server");
     abort();
   }
 
@@ -469,8 +477,16 @@ void LinearModelPredictiveController::calculateRollPitchYawrateThrustCommand(
       yaw_error = yaw_error + 2.0 * M_PI;
     }
   }
-
-  double yaw_rate_cmd = K_yaw_ * yaw_error + yaw_rate_ref_.front(); // feed-forward yaw_rate cmd
+  
+  yaw_error_integration_ += yaw_error * sampling_time_;
+  if (yaw_error_integration_ > yaw_error_integration_limit_) {
+    yaw_error_integration_ = yaw_error_integration_limit_;
+  }
+  else if (yaw_error_integration_ < -1.0 * yaw_error_integration_limit_) {
+    yaw_error_integration_ = -1.0 * yaw_error_integration_limit_;
+  }
+  
+  double yaw_rate_cmd = K_yaw_ * yaw_error + Ki_yaw_ * yaw_error_integration_ + yaw_rate_ref_.front(); // feed-forward yaw_rate cmd
 
   if (yaw_rate_cmd > yaw_rate_limit_) {
     yaw_rate_cmd = yaw_rate_limit_;
