@@ -23,9 +23,9 @@ q_vz: 10 #25
 q_roll: 30 #20
 q_pitch: 30 #20
 
-r_roll: 100 # with roll tc 0.4 500 #400 #300 #100 #35
-r_pitch: 100 # with pitch tc 0.4 500 #400 #300 #100 #35
-r_thrust: 50 #15 #20 #2
+r_roll: 150 # with roll tc 0.4 500 #400 #300 #100 #35
+r_pitch: 150 # with pitch tc 0.4 500 #400 #300 #100 #35
+r_thrust: 75 #15 #20 #2
 
 r_droll: 0.25 #0.3
 r_dpitch: 0.25 #0.3
@@ -37,7 +37,7 @@ yaw_rate_max: deg(90)
 thrust_min: 5
 thrust_max: 25 #15  #20
 
-K_yaw: 3.5 #2.8 # 1.8  
+K_yaw: 4.5 #2.8 # 1.8  
 
 Ki_xy: 0.2
 Ki_altitude: 0.8
