@@ -69,9 +69,9 @@ To run the controller with RotorS simulator (https://github.com/ethz-asl/rotors_
 * Get the controllers and dependencies
 ```sh
   $ sudo apt-get install liblapacke-dev libopenblas-dev
-  $ sudo apt-get install ros-kinetic-eigen-conversions ros-kinetic-tf*
+  $ sudo apt-get install ros-kinetic-eigen-conversions ros-kinetic-tf* ros-kinetic-octomap*
   $ git clone https://github.com/catkin/catkin_simple.git
-  $ git clone https://github.com/ethz-asl/rotors_simulator.git
+  $ git clone https://github.com/ethz-asl/rotors_simulator.git  (TODO add instructions how to compile on kinetic)
   $ git clone https://github.com/ethz-asl/mav_comm.git
   $ git clone https://github.com/ethz-asl/eigen_catkin.git
 
