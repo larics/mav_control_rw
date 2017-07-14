@@ -48,24 +48,6 @@ Installation instructions
 
 To run the controller with RotorS simulator (https://github.com/ethz-asl/rotors_simulator), follow these instructions:
 
-* Install and initialize ROS indigo desktop full, additional ROS packages, catkin-tools:
-  
-```sh
-  $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
-  $ wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
-  $ sudo apt-get update
-  $ sudo apt-get install ros-indigo-desktop-full ros-indigo-joy ros-indigo-octomap-ros python-wstool python-catkin-tools
-  $ sudo rosdep init
-  $ rosdep update
-  $ source /opt/ros/indigo/setup.bash
-```
-* Initialize catkin workspace:
-```sh
-  $ mkdir -p ~/catkin_ws/src
-  $ cd ~/catkin_ws
-  $ catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
-  $ catkin init  # initialize your catkin workspace
-```
 * Get the controllers and dependencies
 ```sh
   $ sudo apt-get install liblapacke-dev libopenblas-dev
@@ -77,6 +59,8 @@ To run the controller with RotorS simulator (https://github.com/ethz-asl/rotors_
 
   $ git clone https://github.com/ethz-asl/mav_control_rw.git
 ```
+ - Compiling these will take about 10 minutes. Be patient while catkin_make does its magic.
+ 
 * Build the workspace  
 ```sh
   $ catkin build
