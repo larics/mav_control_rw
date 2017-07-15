@@ -1,0 +1,53 @@
+#==================================================================================================================
+#
+# MPC parameters for f450 frame controlled by PX4
+#
+#==================================================================================================================
+
+## Controller Parameters:
+mass: 0.92 #1.995 #1.880 #2.120 #1.983
+roll_time_constant: 0.2 #0.25
+pitch_time_constant: 0.2 #0.25
+roll_gain: 1.0  #0.9
+pitch_gain: 1.0  #0.9
+drag_coefficients: [ 0.010000 , 0.010000, 0.0100]
+
+q_x: 40
+q_y: 40
+q_z: 60
+
+q_vx: 20
+q_vy: 20 
+q_vz: 25
+
+q_roll: 30 #20
+q_pitch: 30 #20
+
+r_roll: 50
+r_pitch: 50 
+r_thrust: 5 
+
+r_droll: 0.25 #0.3
+r_dpitch: 0.25 #0.3
+r_dthrust: 0.002 #0.0025
+
+roll_max: deg(25.0)   # 25
+pitch_max: deg(25.0)  # 25
+yaw_rate_max: deg(90)
+thrust_min: 5  # m/s^2
+thrust_max: 15 #15  #20  # m/s^2
+
+K_yaw: 1.8 #2.8 # 1.8  
+
+Ki_xy: 0.2
+Ki_altitude: 0.8
+Ki_yaw: 0.0
+position_error_integration_limit: 2
+antiwindup_ball: 1.0
+yaw_error_integration_limit: 0.5
+
+enable_offset_free : true
+enable_integrator : true
+
+sampling_time: 0.02                      #IMPORTANT: set this equal to the rate of odometry msg
+prediction_sampling_time: 0.2 #0.1       # increase this to sampling time * 10 ? 
