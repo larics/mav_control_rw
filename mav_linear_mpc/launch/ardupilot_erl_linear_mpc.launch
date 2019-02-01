@@ -1,8 +1,8 @@
 <launch>
 
 	<arg name="namespace" default="erl_uav"/>
-	<arg name="mpc_params_config" default="linear_mpc_ardupilot_erl.yaml" />
-	<arg name="kalman_params_config"  default="disturbance_observer_ardupilot_erl.yaml"  
+	<arg name="mpc_params_config" default="linear_mpc_ardupliot_erl.yaml" />
+	<arg name="kalman_params_config"  default="disturbance_observer_ardupilot_erl.yaml" />
 	  
 	<group ns="$(arg namespace)">
 		
@@ -17,7 +17,7 @@
 			
 			<remap from="odometry" to="msf_core/odometry_filtered" />
 			<remap from="rc" to="ardupilot/joy" />
-			<rosparam file="$(find mav_linear_mpc)/resources/$(arg config_file)"/>
+			<rosparam file="$(find mav_linear_mpc)/resources/$(arg mpc_params_config)"/>
 			<rosparam file="$(find mav_disturbance_observer)/resources/$(arg kalman_params_config)"/>
 			<param name="use_rc_teleop" value="true" />
 			<param name="verbose" value="true" />
