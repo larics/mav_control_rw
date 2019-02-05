@@ -1,6 +1,6 @@
 #==================================================================================================================
 #
-# MPC parameters for f550 frame controlled by PX4
+# MPC parameters for ERL_UAV controlled by Ardupilot
 #
 #==================================================================================================================
 
@@ -12,41 +12,42 @@ roll_gain: 1.0  #0.9
 pitch_gain: 1.0  #0.9
 drag_coefficients: [ 0.010000 , 0.010000, 0.0100]
 
-q_x: 30 #40
-q_y: 30 #40
-q_z: 130 #60
+q_x: 30 #           # Position penalty - x                                  
+q_y: 30 #40         # Position penalty - y
+q_z: 130 #60        # Position penalty - z
 
-q_vx: 10 #20
-q_vy: 10 #20 
-q_vz: 10 #25
+q_vx: 10 #20        # Velocity penalty - x
+q_vy: 10 #20        # Velocity penalty - y
+q_vz: 10 #25        # Velocity penalty - z
 
-q_roll: 30 #20
-q_pitch: 30 #20
+q_roll: 30 #20      # Attitude penalty - roll
+q_pitch: 30 #20     # Attitude penalty - pitch
 
-r_roll: 150 # with roll tc 0.4 500 #400 #300 #100 #35
-r_pitch: 150 # with pitch tc 0.4 500 #400 #300 #100 #35
-r_thrust: 75 #15 #20 #2
+r_roll: 150 # with roll tc 0.4 500 #400 #300 #100 #35         # Command penalty - roll
+r_pitch: 150 # with pitch tc 0.4 500 #400 #300 #100 #35       # Command penalty - pitch
+r_thrust: 75 #15 #20 #2                                       # Command penalty - thrust
 
-r_droll: 0.25 #0.3
-r_dpitch: 0.25 #0.3
-r_dthrust: 0.002 #0.0025
+r_droll: 0.25 #0.3                         # Delta command penalty - roll                                      
+r_dpitch: 0.25 #0.3                        # Delta command penalty - pitch
+r_dthrust: 0.002 #0.0025                   # Delta command penalty - thrust
 
-roll_max: deg(25.0)   # 25
-pitch_max: deg(25.0)  # 25
-yaw_rate_max: deg(90)
-thrust_min: 5
-thrust_max: 25 #15  #20
+roll_max: deg(25.0)   # 25                 # Maximum roll value 
+pitch_max: deg(25.0)  # 25                 # Maximum pitch value
+yaw_rate_max: deg(90)                      # Maximum angular velocity value(?)
+thrust_min: 5                              # Minimum thrust value
+thrust_max: 25 #15  #20                    # Maximum thrust value
 
 K_yaw: 4.5 #2.8 # 1.8  
 
-Ki_xy: 0.2
-Ki_altitude: 0.8
-Ki_yaw: 0.6
-position_error_integration_limit: 2
-antiwindup_ball: 1.0
-yaw_error_integration_limit: 0.5
+Ki_xy: 0.2                                 # Position control integrator gain
+Ki_altitude: 0.8                           # Altitude control integrator gain
+Ki_yaw: 0.6                                # Yaw control integrator gain
 
-enable_offset_free : true
+position_error_integration_limit: 2        # Used for limiting position integration elements 
+antiwindup_ball: 1.0                       # Used for resetting NORM(position error) integration
+yaw_error_integration_limit: 0.5           # Used for limiting yaw integration limits
+
+enable_offset_free : true                  # Ako False onda estimated_disturbances = [0, 0, 0]
 enable_integrator : true
 
 sampling_time: 0.02                      #IMPORTANT: set this equal to the rate of odometry msg
