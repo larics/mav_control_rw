@@ -15,12 +15,12 @@
 			clear_params="true" 
 			output="screen">
 			
-			<remap from="odometry" to="msf_core/odometry_filtered" />
-			<remap from="rc" to="ardupilot/joy" />
+		<remap from="odometry" to="/bebop/odometry" />
 			<rosparam file="$(find mav_linear_mpc)/resources/$(arg mpc_params_config)"/>
 			<rosparam file="$(find mav_disturbance_observer)/resources/$(arg kalman_params_config)"/>
-			<param name="use_rc_teleop" value="true" />
+		<param name="use_rc_teleop" value="false" />
 			<param name="verbose" value="true" />
+		<param name="reference_frame" value="world" />
 		</node>
 	
 	</group>

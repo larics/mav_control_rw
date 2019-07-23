@@ -45,20 +45,11 @@ void RcInterfaceAci::rcCallback(const sensor_msgs::JoyConstPtr& msg)
       last_data_.control_interface = RcData::ControlInterface::OFF;
 
     if (msg->axes[4] <= -0.5)
-    {
       last_data_.control_mode = RcData::ControlMode::MANUAL;
-      ROS_INFO("Manual control");
-    }
     else if (msg->axes[4] > -0.5 && msg->axes[4] < 0.5)
-    {
       last_data_.control_mode = RcData::ControlMode::POSITION_CONTROL;
-      ROS_INFO("Position control");
-    }
     else
-      {
     	last_data_.control_mode = RcData::ControlMode::POSITION_CONTROL;
-    	ROS_INFO("Position control");
-      }
 
     last_data_.wheel = msg->axes[6];
   }

@@ -11,17 +11,17 @@ KF_observer:
   P0_torque: 0.1
   
   #process noise
-  q_position: 2 #0.01
-  q_velocity: 3.5 #0.025
-  q_attitude: 2.5 #0.015
-  q_angular_velocity: 3.0 #0.02
-  q_force: 0.001 # 0.01 #0.1
-  q_torque: 0.001 # 0.01 #0.1
+  q_position: 0.01
+  q_velocity: 0.025
+  q_attitude: 0.015
+  q_angular_velocity: 0.02
+  q_force: 0.1
+  q_torque: 0.1
   
   #measurement noise
-  r_position: 0.001 #0.001
-  r_velocity: 0.001 #0.0012
-  r_attitude: 0.001 #0.01
+  r_position: 0.001
+  r_velocity: 0.0012
+  r_attitude: 0.01
   
   #limits
   omega_limit :  [ 3.000000 ,3.000000 ,2.000000]
@@ -29,13 +29,13 @@ KF_observer:
   external_moments_limit :  [ 20.000000 ,20.000000 ,20.000000]  #rad/s^2
 
   #model from system identification (2nd order attitude model)
-  drag_coefficients : [ 0.010000 , 0.010000 , 0.01000]
-  roll_omega : 7.07
-  roll_damping : 0.72
-  roll_gain : 0.8
-  pitch_omega : 7.07
-  pitch_damping : 0.76
-  pitch_gain : 0.84
+  drag_coefficients : [ 0.010000 , 0.010000 , 0]
+  roll_omega : 7
+  roll_damping : 0.625
+  roll_gain : 0.96
+  pitch_omega : 7
+  pitch_damping : 0.625
+  pitch_gain : 0.96
   yaw_omega : 5.000000
   yaw_damping : 0.950000
   yaw_gain : 1.000000
