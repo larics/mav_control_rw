@@ -28,3 +28,10 @@
 *.settings*
 *.DS_Store
 *.idea*
+
+*.bin
+*.parm
+*.tlog
+*.raw
+
+/.vscode
