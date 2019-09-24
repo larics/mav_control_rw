@@ -44,8 +44,8 @@ thrust_min: 5
 thrust_max: 20
 
 K_yaw: 1
-Ki_xy: 0.175
-Ki_altitude: 0.3
+Ki_xy: 5
+Ki_altitude: 10
 Ki_yaw: 0.25
 
 position_error_integration_limit: 2

@@ -12,10 +12,10 @@
 
 ## Controller Parameters:
 mass: 11 #2.3 #1.995 #1.880 #2.120 #1.983
-roll_time_constant: 0.143 #0.25
-pitch_time_constant: 0.125 #0.25
-roll_gain: 0.989  #0.9
-pitch_gain: 0.989  #0.9
+roll_time_constant: 0.13 #0.25
+pitch_time_constant: 0.11 #0.25
+roll_gain: 0.98  #0.9
+pitch_gain: 1.01  #0.9
 drag_coefficients: [ 0.010000 , 0.010000, 0.0000]
 
 q_x: 40
