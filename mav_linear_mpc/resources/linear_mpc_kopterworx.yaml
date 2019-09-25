@@ -18,23 +18,23 @@ roll_gain: 0.98  #0.9
 pitch_gain: 1.01  #0.9
 drag_coefficients: [ 0.010000 , 0.010000, 0.0000]
 
-q_x: 30
-q_y: 30
+q_x: 10
+q_y: 10
 q_z: 130
 
-q_vx: 10
-q_vy: 10
-q_vz: 10
+q_vx: 3.5
+q_vy: 3.5
+q_vz: 20
 
 q_roll: 30
 q_pitch: 30
 
-r_roll: 100
-r_pitch: 100
+r_roll: 150
+r_pitch: 150
 r_thrust: 20
 
-r_droll: 0.25
-r_dpitch: 0.25
+r_droll: 0.5
+r_dpitch: 0.5
 r_dthrust: 0.002
 
 roll_max: deg(25.0)
